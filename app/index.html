@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" ng-app="albumApp">
+<head>
+  <meta charset="utf-8">
+  <title>Album view application</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/directives.js"></script>
+</head>
+<body ng-controller="AlbumListCtrl">
+
+  <div class="page-header">
+    <h2>List of albums</h2>
+  </div>
+
+  <!--Body content-->
+
+  <!--Table list of albums-->
+  <div class="col-md-5">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Album Title</th>
+          <th>User Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="album in albums">
+          <td>{{album.id}}</td>
+          <td><a href="javascript:;" ng-click="getPhotoListForAlbum(album.id)">{{album.title}}</a></td>
+          <td>{{usernameList[album.userId]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--Thumbnail view of photos-->
+  <div class="col-md-5">
+    <album-thumbnails album="showAlbum"></album-thumbnails>
+  </div>
+
+</body>
+</html>

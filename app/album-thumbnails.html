@@ -1,0 +1,6 @@
+<!-- Show photos as thubnails, when clicked open in new tab full size -->
+<div ng-repeat="photo in album" class="col-xs-6 col-md-3">
+  <a ng-href="{{photo.url}}" target="_blank" class="thumbnail">
+    <img ng-src="{{photo.thumbnailUrl}}" alt="{{photo.title}}">
+  </a>
+</div>
